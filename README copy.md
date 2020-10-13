@@ -70,6 +70,38 @@ toBeTruthy can be used for successfull render of component
     - can be removed in production
 ## removing data-test attributes from production
 
+- npm install --save-dev babel-plugin-react-remove-properties
+
+- npm run eject
+    it take the configuration file make editable by us and will only work on create-react-app applications.
+    after this command there is all the entry of internal configuration will appear in package.json or also can be done on babel.rc
+    e.g. in package.json add the below lines in babel:{ }
+
+    "env": {
+        "production": {
+            "plugins": [
+            ["react-remove-properties", {"properties": ["data-test"]
+            ]
+        }
+        }
+    },
+
+- Create production build
+    npm run build
+
+then we have to serve it to static server for which we have to create a static server
+
+npm install -g serve or yarn global add serve
+
+serve -s build
+
+## DRY Refactor
+- Don't Repeat Yourself
+
+
+
+
+
 
 
 
