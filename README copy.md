@@ -2,19 +2,19 @@
 
 ## jest --watch mode
 
-watch mode watches for changes and re run the code if any changes occurs
+- watch mode watches for changes and re run the code if any changes occurs
 
 ## Enzyme
 
-is a tool create a virtual DOM for testing and allow testing without a browser
+- It is a tool create a virtual DOM for testing and allow testing without a browser
 
 ### Shallow rendering
 
-shallow rendering https://enzymejs.github.io/enzyme/docs/api/shallow.html
+- shallow rendering https://enzymejs.github.io/enzyme/docs/api/shallow.html
 
-Render components only one level deep.
-Render Parent, but use placeholder for children but not render children component
-but mount will render the whole heirarchy for component
+- Render components only one level deep.
+- Render Parent, but use placeholder for children but not render children component
+    but mount will render the whole heirarchy for component
 
 ### Access to props and state
 manipulate value of props and state and test for vales
@@ -89,14 +89,38 @@ toBeTruthy can be used for successfull render of component
 - Create production build
     npm run build
 
-then we have to serve it to static server for which we have to create a static server
+    then we have to serve it to static server for which we have to create a static server
 
-npm install -g serve or yarn global add serve
+- npm install -g serve or yarn global add serve
 
-serve -s build
+- serve -s build
 
 ## DRY Refactor
 - Don't Repeat Yourself
+    create function for repeated code and reuse the function
+    - const findByTestAttribute = (wrapper, val) => wrapper.find(`[data-test='${val}']`);
+
+- PROS
+    - Goals for test code not the same as for production code
+    - Want failing test to be easy to diagnose
+    - Sometimes this means repeated code
+
+- One expect per test
+    - Test description provide better documentation
+    - Failure count give better indications of state of code
+        - Test stops at first failure
+    - Can use beforeEach() for common setup
+
+
+    https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/text.html
+
+    https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/simulate.html
+
+    
+
+
+
+
 
 
 

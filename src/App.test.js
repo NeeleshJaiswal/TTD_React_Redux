@@ -37,16 +37,23 @@ test('render counter display', () => {
 });
 test('should start at 0', () => {
   const wrapper =  setup();
-  // console.log(wrapper.debug());
-  //const appComponent = wrapper.find("[data-test='component-app']");
+  //console.log(wrapper.debug());
+  const count = findByTestAttribute(wrapper, 'count').text();
 
-  //expect(appComponent.length).toBe(1);
+  expect(count).toBe("0");
 });
 test('should increase the counter display on click of button', () => {
   const wrapper =  setup();
-  // console.log(wrapper.debug());
-  //const appComponent = wrapper.find("[data-test='component-app']");
+  //console.log(wrapper.debug());
+  
+  // find the button
+  const button = findByTestAttribute(wrapper, 'increment-button');
 
-  //expect(appComponent.length).toBe(1);
+  // click on the button
+  button.simulate('click');
+
+  // find the display, and test that the number has been incremented
+  const count = findByTestAttribute(wrapper, 'count').text();
+  expect(count).toBe("1");
 });
 
